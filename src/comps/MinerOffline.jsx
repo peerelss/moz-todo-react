@@ -1,15 +1,40 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import JTest from "./JTest";
+import "./test_css.css";
+import { Button, Input } from "antd";
+import { Outlet, NavLink, Link } from "react-router-dom";
 export default function MinerOffline() {
-  const [data, setData] = useState([
-    ["10.5.32.82", "Full Recovery"],
-    ["10.5.32.64", "Full Recovery"],
-  ]);
-  const getData = () => {};
-  const saveData = (d) => {
-    const jsond = JSON.stringify(d);
-    console.log(jsond);
-  };
-  return <JTest data={data} saveData={saveData} />;
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios("http://127.0.0.1:5050/get_offline_lines");
+      console.log(result.data);
+      setData(result.data);
+    };
+    fetchData();
+  }, []);
+  return (
+    <div>
+      <div className="box ">
+        {data.map((line) => (
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                display: "block",
+                margin: "1rem 0",
+                color: isActive ? "red" : "",
+              };
+            }}
+            to={`/offline/${line}`}
+          >
+            <Button type="default" className="b-title" key={line}>
+              {line}
+            </Button>
+          </NavLink>
+        ))}
+      </div>
+      <Outlet />
+    </div>
+  );
 }
