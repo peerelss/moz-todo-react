@@ -34,7 +34,7 @@ export default function MinerOffline() {
           </NavLink>
         ))}
       </div>
-      <Outlet />
+      <Outlet></Outlet>
     </div>
   );
 }

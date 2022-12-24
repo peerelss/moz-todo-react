@@ -17,6 +17,7 @@ export default function App({ data, saveData }) {
     } else {
       jRef.current.jexcel.setData(data);
     }
+    console.log(data);
   }, [data]);
 
   const addRow = () => {
@@ -33,8 +34,12 @@ export default function App({ data, saveData }) {
       <br />
       <Space>
         {" "}
-        <Button type="default">更新数据</Button>
-        <Button type="default">保存数据</Button>
+        <Button type="default" onClick={getDataFromFather}>
+          获取数据
+        </Button>
+        <Button type="default" onClick={saveDate2Father}>
+          保存数据
+        </Button>
       </Space>
     </div>
   );

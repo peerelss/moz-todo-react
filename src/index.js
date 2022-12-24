@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -10,8 +10,10 @@ root.render(
   // <React.StrictMode>
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}></Route>
-      <Route path="/offline/:line" element={<MinerOfflineDetail />}></Route>
+      <Route path="/" element={<App />}>
+        {" "}
+        <Route path="/offline/:line" element={<MinerOfflineDetail />}></Route>
+      </Route>
     </Routes>
   </BrowserRouter>
 

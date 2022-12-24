@@ -14,7 +14,7 @@ export default function MinerHashRate() {
       console.log("again ???");
     };
 
-    fetchData();
+    // fetchData();
   }, []);
   const saveData = () => {};
   return (
