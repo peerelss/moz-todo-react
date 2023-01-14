@@ -65,7 +65,9 @@ const LineConfig = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ data: p_data }),
-    }).then((response) => {});
+    }).then((response) => {
+      console.log("The POST request is only used here for the demo purposes");
+    });
   };
   const updateData = () => {};
   return (
