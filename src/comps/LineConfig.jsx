@@ -39,6 +39,7 @@ const LineConfig = () => {
     if (!changes) return;
 
     changes.forEach(([rowIndex, propertyNam, oldValue, newValue]) => {
+      console.log(propertyNam, oldValue, newValue);
       newData[rowIndex] = {
         ...newData[rowIndex],
         [propertyNam]: `${newValue}`,
@@ -58,15 +59,14 @@ const LineConfig = () => {
   const saveData = () => {
     const p_data = hTable.current.hotInstance.getData();
     console.log(p_data);
-    fetch("https://handsontable.com/docs/scripts/json/save.json", {
+    fetch("http://127.0.0.1:5050/save_config_line_data", {
       method: "POST",
-      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ data: p_data }),
     }).then((response) => {
-      console.log("The POST request is only used here for the demo purposes");
+      console.log(response);
     });
   };
   const updateData = () => {};
