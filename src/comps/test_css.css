@@ -12,3 +12,11 @@
   justify-content: center;
   min-width: 150px;
 }
+.center_div {
+  text-align: center;
+}
+.sheet_color {
+  width: 800px;
+  background-color: aqua;
+  text-align: center;
+}
