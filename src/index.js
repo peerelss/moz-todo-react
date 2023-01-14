@@ -5,6 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import MinerOfflineDetail from "./comps/MinerOfflineDetail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import VideoPlayMx from "./comps/VideoPlayMx";
+import HotApp from "./comps/HotApp";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
@@ -14,6 +16,7 @@ root.render(
         {" "}
         <Route path="/offline/:line" element={<MinerOfflineDetail />}></Route>
       </Route>
+      <Route path="/play" element={<HotApp />}></Route>
     </Routes>
   </BrowserRouter>
 

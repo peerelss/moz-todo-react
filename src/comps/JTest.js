@@ -5,10 +5,18 @@ import "./jspreadsheet.css";
 
 export default function App({ data, saveData }) {
   const jRef = useRef(null);
+  const changed = (instance, cell, x, y, value) => {
+    console.log("changed");
+    console.log([x, y]);
+    console.log(jRef.current.jexcel.getRowData(y));
+  };
   const options = {
     data: data,
     minDimensions: [4, 10],
     colWidths: [200, 200, 200, 200],
+    defaultRowHeight: 5,
+    pagination: 20,
+    onchange: changed,
   };
 
   useEffect(() => {
@@ -28,6 +36,7 @@ export default function App({ data, saveData }) {
     saveData(d);
   };
   const getDataFromFather = () => {};
+
   return (
     <div>
       <div ref={jRef} />
@@ -36,6 +45,9 @@ export default function App({ data, saveData }) {
         {" "}
         <Button type="default" onClick={getDataFromFather}>
           获取数据
+        </Button>
+        <Button type="default" onClick={addRow}>
+          添加一行
         </Button>
         <Button type="default" onClick={saveDate2Father}>
           保存数据
