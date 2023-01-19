@@ -11,11 +11,12 @@ const listToLine = (list) => {
   return {
     ip: list[0],
     model: list[1],
-    result: list[2],
-    new: list[3],
+    operate: list[2],
+    fan_no: list[3],
+    board_no: list[4],
   };
 };
-const MinerOfflineDetail = () => {
+const MinerZeroDetail = () => {
   const hTable = useRef(null);
   let params = useParams();
   let line = params.line;
@@ -23,7 +24,7 @@ const MinerOfflineDetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        "http://127.0.0.1:5050/get_offline_lines/" + line
+        "http://127.0.0.1:5050/get_zero_miner_by_line/" + line
       );
       console.log(result.data.map(listToLine));
       setData(result.data.map(listToLine));
@@ -31,16 +32,7 @@ const MinerOfflineDetail = () => {
     fetchData();
   }, [line]);
   const getData = () => {};
-  const saveData = async () => {
-    const p_data = hTable.current.hotInstance.getData();
-    const params = { line: line, ips: p_data };
-    console.log(params);
-    const result = await axios.post(
-      "http://127.0.0.1:5050/save_offline_lines",
-      params
-    );
-    console.log(result.data);
-  };
+  const saveData = async () => {};
   const addNewRow = () => {};
   const updateData = () => {};
   const handleChange = () => {};
@@ -53,12 +45,13 @@ const MinerOfflineDetail = () => {
         <HotTable
           ref={hTable}
           data={data}
-          colHeaders={["ip", "model", "result", "是否新增"]}
+          colHeaders={["ip", "model", "operate", "fan_no", "board_no"]}
           columns={[
             { data: "ip", type: "text" },
             { data: "model", type: "text" },
-            { data: "result", type: "text" },
-            { data: "new", type: "checkbox" },
+            { data: "operate", type: "text" },
+            { data: "fan_no", type: "text" },
+            { data: "board_no", type: "text" },
           ]}
           rowHeaders={true}
           className="htCenter htMiddle"
@@ -72,4 +65,4 @@ const MinerOfflineDetail = () => {
   );
 };
 
-export default MinerOfflineDetail;
+export default MinerZeroDetail;

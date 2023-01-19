@@ -22,6 +22,14 @@ const MainView = () => {
         >
           离线管理
         </NavLink>
+        <NavLink
+          className={({ isActive }) => {
+            return isActive ? "nav_item_active" : "nav_item";
+          }}
+          to="/zero"
+        >
+          0算力处理
+        </NavLink>
       </div>
       <Outlet />
     </div>
