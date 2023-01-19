@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VideoPlayMx from "./comps/VideoPlayMx";
 import HotApp from "./comps/HotApp";
 import LineConfig from "./comps/LineConfig";
+import MinerOffline from "./comps/MinerOffline";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
@@ -15,10 +16,11 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}>
         {" "}
-        <Route path="/offline/:line" element={<MinerOfflineDetail />}></Route>
+        <Route path="/offline" element={<MinerOffline />}>
+          <Route path=":line" element={<MinerOfflineDetail />}></Route>
+        </Route>
+        <Route path="/line" element={<LineConfig />}></Route>
       </Route>
-      <Route path="/play" element={<HotApp />}></Route>
-      <Route path="/line" element={<LineConfig />}></Route>
     </Routes>
   </BrowserRouter>
 

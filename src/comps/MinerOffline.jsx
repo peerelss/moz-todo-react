@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import JTest from "./JTest";
+import "../main_view.css";
 import "./test_css.css";
 import { Button, Input } from "antd";
 import { Outlet, NavLink, Link } from "react-router-dom";
@@ -8,15 +9,15 @@ export default function MinerOffline() {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("http://127.0.0.1:5050/get_offline_lines");
+      const result = await axios("http://127.0.0.1:5050/get_all_line_config");
       console.log(result.data);
-      setData(result.data);
+      setData(result.data.data);
     };
     fetchData();
   }, []);
   return (
     <div>
-      <div className="box ">
+      <div className="nav_container ">
         {data.map((line) => (
           <NavLink
             style={({ isActive }) => {
@@ -26,10 +27,10 @@ export default function MinerOffline() {
                 color: isActive ? "red" : "",
               };
             }}
-            to={`/offline/${line}`}
+            to={`/offline/${line.name_short}`}
           >
             <Button type="default" className="b-title" key={line}>
-              {line}
+              {line.name_full}
             </Button>
           </NavLink>
         ))}

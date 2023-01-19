@@ -76,10 +76,10 @@ const LineConfig = () => {
     hTable.current.hotInstance.loadData(data.data);
   };
   useEffect(() => {
-    //  fetchTodos();
+    fetchTodos();
   }, []);
   const updateData = () => {
-    // fetchTodos();
+    fetchTodos();
   };
   return (
     <div className="center_div">
@@ -87,7 +87,7 @@ const LineConfig = () => {
       <Button onClick={saveData}>保存数据</Button>
       <Button onClick={addNewRow}>add new row</Button>
       <Button onClick={updateData}>更新数据</Button>
-      <div className="sheet_color">
+      <div>
         <HotTable
           ref={hTable}
           data={data}
