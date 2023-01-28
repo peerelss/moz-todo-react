@@ -30,6 +30,14 @@ const MainView = () => {
         >
           0算力处理
         </NavLink>
+        <NavLink
+          className={({ isActive }) => {
+            return isActive ? "nav_item_active" : "nav_item";
+          }}
+          to="/abnormal"
+        >
+          挖矿异常
+        </NavLink>
       </div>
       <Outlet />
     </div>
