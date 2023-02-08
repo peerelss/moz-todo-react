@@ -1,0 +1,7 @@
+.run_man {
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+  background-color: aqua;
+  margin: 10px;
+}

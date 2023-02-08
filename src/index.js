@@ -12,6 +12,7 @@ import MinerOffline from "./comps/MinerOffline";
 import MinerZero from "./comps/MinerZero";
 import MinerZeroDetail from "./comps/MinerZeroDetail";
 import HashAbnormal from "./comps/HashAbnormal";
+import RunManager from "./comps/RunManager";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
@@ -29,6 +30,7 @@ root.render(
         <Route path="/abnormal" element={<HashAbnormal />}>
           <Route path=":line" element={<MinerOfflineDetail />}></Route>
         </Route>
+        <Route path="/run" element={<RunManager />}></Route>
       </Route>
     </Routes>
   </BrowserRouter>

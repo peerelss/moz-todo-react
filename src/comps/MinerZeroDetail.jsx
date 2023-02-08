@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useParams, userParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./test_css.css";
 import { HotTable } from "@handsontable/react";
