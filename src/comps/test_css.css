@@ -12,8 +12,20 @@
   justify-content: center;
   min-width: 150px;
 }
-.center_div {
+.sheet_div {
+  width: 850px;
   text-align: center;
+  background-color: aqua;
+  margin: auto;
+}
+.center_div {
+  width: 850px;
+  text-align: center;
+  background-color: aqua;
+}
+.container_div {
+  text-align: center;
+  background-color: blue;
 }
 .sheet_color {
   width: 800px;

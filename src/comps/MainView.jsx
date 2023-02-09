@@ -46,6 +46,14 @@ const MainView = () => {
         >
           运行管理
         </NavLink>
+        <NavLink
+          className={({ isActive }) => {
+            return isActive ? "nav_item_active" : "nav_item";
+          }}
+          to="/cook"
+        >
+          Cookie管理
+        </NavLink>
       </div>
       <Outlet />
     </div>

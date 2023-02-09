@@ -82,12 +82,12 @@ const LineConfig = () => {
     fetchTodos();
   };
   return (
-    <div className="center_div">
+    <div className="container_div">
       <h2>运维线路配置</h2>
       <Button onClick={saveData}>保存数据</Button>
       <Button onClick={addNewRow}>add new row</Button>
       <Button onClick={updateData}>更新数据</Button>
-      <div>
+      <div className="sheet_div">
         <HotTable
           ref={hTable}
           data={data}
@@ -99,7 +99,7 @@ const LineConfig = () => {
             { data: "under_control", type: "checkbox" },
           ]}
           rowHeaders={true}
-          width="600"
+          width="800"
           className="htCenter htMiddle"
           height="800"
           stretchH="all"

@@ -10,19 +10,23 @@ const RunManager = () => {
     console.log(result.data);
   };
   const switchZero = async (checked) => {
-    const result = await axios("");
+    let url = "http://127.0.0.1:5050/set_test_running?bool=";
+    if (checked) {
+      url = url + "1";
+    }
+    const result = await axios(url);
     console.log(result);
   };
   const isBotAlive = () => ({});
   const isMonitorAlive = () => ({});
   const onChange = (checked) => {
     console.log(`switch to ${checked}`);
+    setisZeroRunning(checked);
+    switchZero(checked);
     if (checked) {
       console.log("开启");
-      setisZeroRunning(checked);
     } else {
       console.log("关闭");
-      setisZeroRunning(checked);
     }
   };
   useEffect(() => {
