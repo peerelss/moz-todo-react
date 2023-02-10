@@ -38,10 +38,14 @@ const MinerZeroDetail = () => {
   const handleChange = () => {};
   return (
     <div className="container_div">
-      <Button onClick={saveData}>保存数据</Button>
-      <Button onClick={addNewRow}>add new row</Button>
-      <Button onClick={updateData}>更新数据</Button>
+      <div className="button_div"></div>
+
       <div className="sheet_div">
+        <Button onClick={saveData}>保存数据</Button>
+        <Button onClick={addNewRow}>add new row</Button>
+        <Button onClick={updateData}>更新数据</Button>
+        <br></br>
+        <br></br>
         <HotTable
           ref={hTable}
           data={data}

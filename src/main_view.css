@@ -1,5 +1,5 @@
 .nav_container {
-  padding: 10px;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -9,12 +9,12 @@
   text-transform: capitalize;
   color: gray;
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 2px 5px;
   border: 3px solid transparent;
 }
 
 .nav_item_active {
-  padding: 5px 10px;
+  padding: 2px 5px;
   color: black;
   border-color: black;
   border: 3px solid;

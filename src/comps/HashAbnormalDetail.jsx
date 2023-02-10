@@ -42,10 +42,11 @@ const HashAbnormalDetail = () => {
   const handleChange = () => {};
   return (
     <div className="container_div">
-      <Button onClick={saveData}>保存数据</Button>
-      <Button onClick={addNewRow}>add new row</Button>
-      <Button onClick={updateData}>更新数据</Button>
       <div className="sheet_div">
+        <h2>挖矿异常矿机</h2>
+        <Button onClick={saveData}>保存数据</Button>
+        <Button onClick={addNewRow}>add new row</Button>
+        <Button onClick={updateData}>更新数据</Button>
         <HotTable
           ref={hTable}
           data={data}

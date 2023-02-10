@@ -4,4 +4,18 @@
   height: 300px;
   background-color: aqua;
   margin: 10px;
+  text-align: center;
+}
+.notice_txt {
+  vertical-align: middel;
+  display: inline-block;
+  text-align: center;
+  font-size: 25px;
+  margin: 5px;
+}
+.container_div {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }

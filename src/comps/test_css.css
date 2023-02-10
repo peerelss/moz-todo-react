@@ -13,22 +13,35 @@
   min-width: 150px;
 }
 .sheet_div {
-  width: 850px;
+  display: block;
+  width: 810px;
   text-align: center;
   background-color: aqua;
-  margin: auto;
+  margin: 5px auto;
+  border-radius: 5px;
+  border: 2px solid #73ad21;
 }
 .center_div {
+  display: block;
   width: 850px;
   text-align: center;
   background-color: aqua;
 }
 .container_div {
+  display: block;
   text-align: center;
-  background-color: blue;
+  background-color: gold;
 }
 .sheet_color {
   width: 800px;
   background-color: aqua;
   text-align: center;
+}
+.button_div {
+  display: block;
+  background-color: blue;
+}
+.offline_div {
+  text-align: center;
+  background-color: gold;
 }
