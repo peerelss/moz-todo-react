@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Input } from "antd";
+import { Button, Input, message, Space } from "antd";
 import axios from "axios";
 import "../main_view.css";
 import "./test_css.css";
@@ -7,6 +7,7 @@ const CookieManager = () => {
   const [service_ticket, setService_ticket] = useState("service_ticket");
   const [antId, setAntId] = useState("ant Id");
   const [antToken, setAntToken] = useState("ant Token");
+  const [messageApi, contextHolder] = message.useMessage();
   useEffect(() => {
     axios
       .get("http://127.0.0.1:5050/getAllCookie")
@@ -20,6 +21,19 @@ const CookieManager = () => {
         console.log(error);
       });
   }, []);
+  //判断cookie 是否可用
+  useEffect(() => {
+    if (service_ticket && service_ticket.length > 20) {
+      axios
+        .get("http://127.0.0.1:5050/test_cookie")
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }, [service_ticket]);
   const changeService_ticket = (e) => {
     setService_ticket(e.target.value);
   };
@@ -47,7 +61,34 @@ const CookieManager = () => {
         console.log(error);
       });
   };
-
+  const testCookies = () => {
+    if (service_ticket && service_ticket.length > 20) {
+      axios
+        .get("http://127.0.0.1:5050/test_cookie")
+        .then(function (response) {
+          console.log(response.data);
+          const code = response.data.code;
+          if (code == 0) {
+            messageApi.open({
+              type: "success",
+              content: "当前 cookie 可用，请放心使用其他功能",
+            });
+          } else {
+            messageApi.open({
+              type: "warning",
+              content: "当前 cookie 不可用，请更新",
+            });
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+          messageApi.open({
+            type: "error",
+            content: "出问题，请联系管理员",
+          });
+        });
+    }
+  };
   return (
     <div className="sheet_div">
       <div>
@@ -79,6 +120,10 @@ const CookieManager = () => {
       <Button type="primary" onClick={setCookies}>
         设置cookie
       </Button>
+      <Button type="primary" onClick={testCookies}>
+        测试 cookies 是否可用
+      </Button>
+      {contextHolder}
     </div>
   );
 };

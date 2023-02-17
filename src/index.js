@@ -15,6 +15,8 @@ import HashAbnormal from "./comps/HashAbnormal";
 import RunManager from "./comps/RunManager";
 import CookieManager from "./comps/CookieManager";
 import HashAbnormalDetail from "./comps/HashAbnormalDetail";
+import MonitorHashRate from "./comps/MonitorHashRate";
+import MonitorHashRateDetail from "./comps/MonitorHashRateDetail";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
@@ -34,6 +36,9 @@ root.render(
         </Route>
         <Route path="/run" element={<RunManager />}></Route>
         <Route path="/cook" element={<CookieManager />}></Route>
+        <Route path="/monitor" element={<MonitorHashRate />}>
+          <Route path=":line" element={<MonitorHashRateDetail />}></Route>
+        </Route>
       </Route>
     </Routes>
   </BrowserRouter>

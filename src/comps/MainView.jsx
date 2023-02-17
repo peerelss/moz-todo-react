@@ -54,6 +54,14 @@ const MainView = () => {
         >
           Cookie管理
         </NavLink>
+        <NavLink
+          className={({ isActive }) => {
+            return isActive ? "nav_item_active" : "nav_item";
+          }}
+          to="/monitor"
+        >
+          各条线路算计监控
+        </NavLink>
       </div>
       <Outlet />
     </div>

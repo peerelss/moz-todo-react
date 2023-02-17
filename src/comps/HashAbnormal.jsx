@@ -4,7 +4,7 @@ import JTest from "./JTest";
 import "../main_view.css";
 import "./test_css.css";
 import { Button, Input } from "antd";
-import { Outlet, NavLink, Link } from "react-router-dom";
+import { Outlet, NavLink, Link, useNavigate } from "react-router-dom";
 export default function HashAbnormal() {
   const [data, setData] = useState([]);
   useEffect(() => {
