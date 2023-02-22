@@ -54,7 +54,7 @@ export default function MonitorHashRate() {
     const id = setInterval(() => {
       updateLineData();
       console.log(id);
-    }, 15 * 1000);
+    }, 5 * 59 * 1000);
     setTimeId(id);
     return () => {
       clearInterval(timeId);
