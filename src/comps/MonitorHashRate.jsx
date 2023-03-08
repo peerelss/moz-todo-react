@@ -10,41 +10,25 @@ import {
   Legend,
 } from "recharts";
 
-const line_list = [
-  "line_j",
-  "line_e1",
-  "line_e2",
-  "line_i_k",
-  "line_e_i_m",
-  "line_e",
-  "line_i",
-  "line_k_1",
-  "line_k_2",
-  "line_k_3",
-  "line_k_4",
-  "line_o_1",
-  "line_o_2",
-  "line_o_3",
-  "line_o_4",
-];
 const data_2_monitor = (data) => {
   return {
     name: data.name,
-    line_j: data.line_j - 600,
+    line_j: data.line_j,
     line_e1: data.line_e1,
     line_e2: data.line_e2,
-    line_i_k: data.line_i_k - 600,
-    line_e_i_m: data.line_e_i_m - 800,
+    line_i_k: data.line_i_k,
+    line_e_i_m: data.line_e_i_m,
     line_e: data.line_e,
     line_i: data.line_i,
-    line_k_1: data.line_k_1 - 300,
+    line_k_1: data.line_k_1,
     line_k_2: data.line_k_2,
-    line_k_3: data.line_k_3 - 100,
-    line_k_4: data.line_k_4 - 100,
-    line_o_1: data.line_o_1 - 200,
-    line_o_2: data.line_o_2 - 100,
+    line_k_3: data.line_k_3,
+    line_k_4: data.line_k_4,
+    line_o_1: data.line_o_1,
+    line_o_2: data.line_o_2,
     line_o_3: data.line_o_3,
-    line_o_4: data.line_o_4 - 100,
+    line_o_4: data.line_o_4,
+    line_e_new_0307: data.line_e_new_0307,
   };
 };
 export default function MonitorHashRate() {
@@ -94,6 +78,7 @@ export default function MonitorHashRate() {
         <Line type="monotone" dataKey="line_e1" stroke="red" />
         <Line type="monotone" dataKey="line_e2" stroke="red" />
         <Line type="monotone" dataKey="line_i_k" stroke="red" />
+        <Line type="monotone" dataKey="line_e_new_0307" stroke="red" />
         <Line type="monotone" dataKey="line_e_i_m" stroke="black" />
         <Line type="monotone" dataKey="line_e" stroke="black" />
         <Line type="monotone" dataKey="line_i" stroke="black" />

@@ -62,6 +62,14 @@ const MainView = () => {
         >
           各条线路算计监控
         </NavLink>
+        <NavLink
+          className={({ isActive }) => {
+            return isActive ? "nav_item_active" : "nav_item";
+          }}
+          to="/test"
+        >
+          功能测试
+        </NavLink>
       </div>
       <Outlet />
     </div>
